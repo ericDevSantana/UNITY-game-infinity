@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BallMovement.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Offset.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/ERIC-PC/Desktop/Infinity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
