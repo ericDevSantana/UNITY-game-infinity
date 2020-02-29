@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
             case GameStates.MAINMENU:
             {
                 //Show Menu UI
+                MainMenu.SetActive(true);
                 //Hide everything else
             }
             break;
@@ -42,6 +43,7 @@ public class GameController : MonoBehaviour
             case GameStates.INGAME:
             {
                 //Show Gameplay UI
+                MainMenu.SetActive(false);
                 //Hide everything else
             }
             break;
