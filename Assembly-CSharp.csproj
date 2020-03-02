@@ -62,7 +62,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ButtonBehaviour.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\ObstaclesBehaviour.cs" />
     <Compile Include="Assets\Scripts\PlayerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\SpawnController.cs" />
     <Compile Include="Assets\Scripts\TextureOffset.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/ERIC-PC/Desktop/Infinity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
