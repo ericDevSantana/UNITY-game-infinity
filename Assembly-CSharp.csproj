@@ -60,10 +60,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ButtonBehaviour.cs" />
+    <Compile Include="Assets\Scripts\AudioController.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\ObstaclesBehaviour.cs" />
     <Compile Include="Assets\Scripts\PlayerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\SaveBestScore.cs" />
     <Compile Include="Assets\Scripts\SpawnController.cs" />
     <Compile Include="Assets\Scripts\TextureOffset.cs" />
     <Reference Include="Unity.Timeline.Editor">

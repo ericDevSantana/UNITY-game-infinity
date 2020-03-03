@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameStates
 {
@@ -23,6 +24,11 @@ public class GameController : MonoBehaviour
     public GameObject Settings;
     public GameObject Score;
 
+    public Text scoreInGame;
+    public Text scoreInGameOver;
+
+    private float score = 0;
+
     //Player
     public GameObject player;
 
@@ -40,6 +46,7 @@ public class GameController : MonoBehaviour
             case GameStates.MAINMENU:
             {
                 //Show Menu UI
+                Score.SetActive(false);
                 MainMenu.SetActive(true);
                 //Hide everything else
             }
@@ -50,6 +57,9 @@ public class GameController : MonoBehaviour
                 //Show Gameplay UI
                 MainMenu.SetActive(false);
                 Score.SetActive(false);
+                Ingame.SetActive(true);
+                score += Time.deltaTime + 0.01f;
+                scoreInGame.text = score.ToString("0.0");
                 //Hide everything else
             }
             break;
@@ -57,6 +67,7 @@ public class GameController : MonoBehaviour
             case GameStates.GAMEOVER:
             {
                 //Show GameOver UI
+                Ingame.SetActive(false);
                 callScore();
                 //Hide everything else
             }
@@ -73,6 +84,7 @@ public class GameController : MonoBehaviour
             {
                 //Show score UI
                 Score.SetActive(true);
+                scoreInGameOver.text = score.ToString("0.0");
                 Debug.Log("Score");
                 //Hide everything else
             }
@@ -88,15 +100,10 @@ public class GameController : MonoBehaviour
     public void callGameStart()
     {
         player.SetActive(true);
+        score = 0;
+
+        //player main position
         player.transform.position = new Vector3(0, 3.46f, -4.47f);
-
-        //Store all obstacles in a list so you can desactivate them when you die
-        ObstaclesBehaviour[] obstacles = FindObjectsOfType(typeof(ObstaclesBehaviour)) as ObstaclesBehaviour[];
-
-        foreach (ObstaclesBehaviour o in obstacles)
-        {
-            o.gameObject.SetActive(false);
-        }
 
         currentState = GameStates.INGAME;
     }
@@ -109,6 +116,20 @@ public class GameController : MonoBehaviour
     public void callGameOver()
     {
         currentState = GameStates.GAMEOVER;
+
+        //Get all obstacles in the scene so you can desactivate them when you die
+        ObstaclesBehaviour[] obstacles = FindObjectsOfType(typeof(ObstaclesBehaviour)) as ObstaclesBehaviour[];
+
+        foreach (ObstaclesBehaviour o in obstacles)
+        {
+            o.gameObject.SetActive(false);
+        }
+
         player.SetActive(false);
+    }
+
+    public void callMainMenu()
+    {
+        currentState = GameStates.MAINMENU;
     }
 }

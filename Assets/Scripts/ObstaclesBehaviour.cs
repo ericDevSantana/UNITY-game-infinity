@@ -11,6 +11,7 @@ public class ObstaclesBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Accessing GameController script via var
         gameController = FindObjectOfType(typeof(GameController)) as GameController;
     }
 
@@ -19,9 +20,12 @@ public class ObstaclesBehaviour : MonoBehaviour
     {
         if(gameController.getCurrentGameState() == GameStates.INGAME)
         {
+            //Making obstacles come towards the player incrementing its position with negative AXIS Z value
             transform.position += new Vector3(0, 0, -(speed + Time.deltaTime));
         }
 
+        //After that point in z axis...deactivate obstacles
+        //Obstacles passed the player and camera position
         if(transform.position.z < -13)
         {
             gameObject.SetActive(false);

@@ -24,6 +24,7 @@ public class SpawnController : MonoBehaviour
     {
         gameController = FindObjectOfType(typeof(GameController)) as GameController;
 
+        //create maxSpawnWalls and stores it in a list of game objects...all of them are deactivated at first
         for (int i = 0; i < maxSpawnWalls; i++)
         {
             GameObject tempWall = Instantiate(obstaclesWalls) as GameObject;
@@ -37,6 +38,7 @@ public class SpawnController : MonoBehaviour
     {
         if (gameController.getCurrentGameState() == GameStates.INGAME)
         {
+            //Timer implementation so the code Spawn an obstacle everytime currentSpawnWalls is greater rateSpawnWalls
             currentSpawnWalls += Time.deltaTime;
 
             if (currentSpawnWalls > rateSpawnWalls)
@@ -45,15 +47,16 @@ public class SpawnController : MonoBehaviour
                 SpawnWalls();
             }
         }
-        }
+    }
 
     private void SpawnWalls()
     {
-
+        //space range on X axis where the obstacle will respawn
         float spaceBetweenWalls = Random.Range(minSpaceBetweenWalls, maxSpaceBetweenWalls);
 
         GameObject tempWall = null;
 
+        //find next obstacle available and stores it in tempWall...then spawn the wall in the scene and activate it
         for (int i = 0; i < maxSpawnWalls; i++)
         {
             if (wallsPrefab[i].activeSelf == false)
