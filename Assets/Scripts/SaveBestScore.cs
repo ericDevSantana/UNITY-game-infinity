@@ -15,4 +15,14 @@ public class SaveBestScore : MonoBehaviour
     {
         
     }
+
+    public void saveBestScore(string key, float bestScore)
+    {
+        PlayerPrefs.SetFloat("Best Score", bestScore);
+    }
+
+    public float loadBestScore()
+    {
+        return PlayerPrefs.GetFloat("Best Score");
+    }
 }

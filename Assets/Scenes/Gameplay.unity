@@ -648,8 +648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae950b67edb39a489c6fcaf17a93a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawnWalls: 5
-  rateSpawnWalls: 0.6
+  maxSpawnWalls: 10
+  rateSpawnWalls: 2
   obstaclesWalls: {fileID: 2930688160103391723, guid: 9b93c01e1df1f3a42b53b8fabd0a36c6,
     type: 3}
   wallsPrefab: []
@@ -1557,6 +1557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435833381}
   - component: {fileID: 1435833380}
+  - component: {fileID: 1435833382}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1583,6 +1584,7 @@ MonoBehaviour:
   Score: {fileID: 1842621159}
   scoreInGame: {fileID: 168007611}
   scoreInGameOver: {fileID: 1940172656}
+  bestScoreInGame: {fileID: 1957192116}
   player: {fileID: 1579538248}
 --- !u!4 &1435833381
 Transform:
@@ -1598,6 +1600,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1435833382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435833379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f346d6589a6f0fb45ac9e09c5b2862ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1456070776
 GameObject:
   m_ObjectHideFlags: 0

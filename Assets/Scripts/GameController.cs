@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
     //Game starts in MAINMENU
     private GameStates currentState = GameStates.MAINMENU;
 
+    private SaveBestScore saveBestScore;
+
     //UI Groups
     public GameObject MainMenu;
     public GameObject Ingame;
@@ -26,6 +28,7 @@ public class GameController : MonoBehaviour
 
     public Text scoreInGame;
     public Text scoreInGameOver;
+    public Text bestScoreInGame;
 
     private float score = 0;
 
@@ -35,7 +38,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        saveBestScore = FindObjectOfType(typeof(SaveBestScore)) as SaveBestScore;
     }
 
     // Update is called once per frame
@@ -84,7 +87,15 @@ public class GameController : MonoBehaviour
             {
                 //Show score UI
                 Score.SetActive(true);
+                
+                if (saveBestScore.loadBestScore() < score)
+                {
+                    saveBestScore.saveBestScore("Best Score", score);
+                }
+
                 scoreInGameOver.text = score.ToString("0.0");
+                bestScoreInGame.text = saveBestScore.loadBestScore().ToString("0.0");
+
                 Debug.Log("Score");
                 //Hide everything else
             }
