@@ -26,7 +26,8 @@ public class TextureOffset : MonoBehaviour
         {
             //Modifying texture's offset to give an effect of movement
             offset += 0.001f;
-            currentMaterial.SetTextureOffset("_MainTex", new Vector3(0, -offset * (speed + 1), 0));
+            currentMaterial.SetTextureOffset("_BaseMap", new Vector3(0, -offset * (speed + 1), 0));
+      
         }
     }
 }

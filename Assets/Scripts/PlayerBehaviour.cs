@@ -53,6 +53,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameController.callGameOver();
+            AudioController.playSound(SoundEffects.HIT);
             Debug.Log("GameOver");
         }
     }
